@@ -55,8 +55,8 @@
   }
   .footerlist span{
     text-decoration: none;
-    /*color: gray;*/
-    font-size:16px;
+    font-size:12px;
+
 
   }
   .footerul{
@@ -83,7 +83,7 @@
       margin-top: 10/@rem;
     }
     .icon-fenlei{
-      margin-top: 7px;
+      margin-top: 6px;
       font-size: 16px;
       margin-bottom: 10/@rem;
 

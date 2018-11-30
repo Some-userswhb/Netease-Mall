@@ -1,0 +1,13 @@
+{
+  "data": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "name":"吴红斌"
+
+  },
+  "exclude": [
+    "node_modules"
+  ]
+
+}

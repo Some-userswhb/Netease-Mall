@@ -8,8 +8,10 @@ import Vue from 'vue';
 import App from './App.vue';
 //引入路由组件
 import router from './router';
-
+//引入轮播官方样式
 import 'swiper/dist/css/swiper.css';
+//引入mock接口模块
+import './mock/mockServer'
 
 new Vue({
    el:'#app',
