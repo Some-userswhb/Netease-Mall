@@ -52,6 +52,8 @@
     width: 100%;
     height: 96/@rem;
     /*background-color: gray;*/
+    z-index: 30;
+    background-color: white;
   }
   .footerlist span{
     text-decoration: none;
