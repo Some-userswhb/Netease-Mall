@@ -1,10 +1,10 @@
 <template>
-    <div style="background-color: #F4F4F4; height:2000px" class="warpScroll">
+    <div style="background-color: #F4F4F4; height:6000px" class="warpScroll">
       <!--头部导航 搜索-->
       <div class="homeHeader">
         <!--搜索 登录-->
         <ul class="homeList">
-          <li>
+          <li @click="goto('./loginmask')">
             <a href="javascript:;" class="homeLogo">
               <img src="//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/indexLogo-11d65342f9.png" alt="">
             </a>
@@ -14,11 +14,11 @@
             <input type="text" class="headerInput" placeholder="搜索商品，共19724款好物">
           </li>
           <li>
-            <input type="button"  class="headerLogin" value="登录">
+            <input type="button"  class="headerLogin" value="登录" @click="goto('/personal')">
           </li>
         </ul>
         <!--导航-->
-        <div class="wrapper">
+        <div class="wrapper" ref="wrapper">
           <ul class="homeNavList">
             <li class="red">
               <span>推荐</span>
@@ -150,8 +150,14 @@
          <div class="welfareClub">
            <img src="http://yanxuan.nosdn.127.net/a3ea2d1108c94c7dece05eddf95f6df5.jpg" alt="">
          </div>
+          <!--专题精选-->
          <Featured/>
+          <!--好物列表-->
+         <BigBrandList/>
       </div>
+      <!--大遮罩层-->
+      <div></div>
+
     </div>
 </template>
 
@@ -161,16 +167,21 @@
   import BrandItem from '../../components/BrandItem/BrandItem.vue'
   import NewProduct from '../../components/NewProduct/NewProduct.vue'
   import Featured from '../../components/Featured/Featured.vue'
+  import BigBrandList from '../../components/BigBrandList/BigBrandList.vue'
   export default{
      components:{
        Banner,//注册轮播图组件
        BrandItem,//注册品牌直供组件
        NewProduct,//新品首发组件
        Featured, //
+       BigBrandList,
      },
      data(){
         return{
           isshow:false,
+          goto(path){
+            this.$router.replace(path)
+          }
         }
      },
      methods:{
@@ -194,7 +205,8 @@
 <style lang="less">
   @import "../../common/stylus/mixins.less";
   /*头部*/
-
+.warpScroll{
+  width: 100%;
   .homeHeader{
     position: fixed;
     left: 0;
@@ -264,9 +276,6 @@
         margin-left: 30/@rem;
         padding: 0 12/@rem;
         height: 50/@rem;
-        span{
-
-        }
       }
       .red{
         color: #BB3E48;
@@ -279,7 +288,7 @@
       background-color: white;
       position: absolute;
       right: -1px;
-      top: 80/@rem;
+      top: 90/@rem;
       text-align: center;
       line-height: 60/@rem;
       box-shadow: -22/@rem 0 52/@rem white;
@@ -289,8 +298,8 @@
         height: 300/@rem;
         background-color: #fff;
         position: absolute;
-        left: -326px;
-        top: 30px;
+        left: -652/@rem;
+        top: 60/@rem;
         z-index: 20;
         li{
           width: 150/@rem;
@@ -312,9 +321,14 @@
     }
   }
   .pageScroll{
+    width: 100%;
+    height: 1080/@rem;
     position: relative;
     top: 74px;
-  }
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+
   /*轮播图下的小公告*/
   .shopDirections{
     width: 100%;
@@ -482,5 +496,6 @@
       height: 100%;
     }
   }
-
+  }
+}
 </style>

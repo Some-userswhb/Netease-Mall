@@ -14,7 +14,7 @@
 
           <ul class="imgList">
             <li class="firstLi" v-for="(item,index) in PicList" :key="index">
-              <img :src="item.itemPicUrl">
+              <img v-lazy ="item.itemPicUrl">
               <span class="shuMing">{{item.title}}</span>
               <span class="jiaGe">{{item.priceInfo}}元起</span>
               <p class="description">{{item.subtitle}}</p>
@@ -67,13 +67,12 @@
     position: relative;
    .featuredContent{
      width: 100%;
-     height: 522/@rem;
+     height: 562/@rem;
      background-color: #F4F4F4;
      position: absolute;
      left:0;
      top: 2160/@rem;
      border-bottom: 2/@rem solid #B3B3B3;
-
      .featTitle{
        width: 100%;
        height: 100/@rem;
@@ -112,7 +111,6 @@
            }
            .description{
              float: left;
-             margin-top: -6/@rem;
              color: #969696;
              font-size: 24/@rem;
            }

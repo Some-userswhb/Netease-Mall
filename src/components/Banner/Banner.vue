@@ -2,7 +2,7 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide swiper-first" v-for="(item,index) in Pic" :key="index">
-        <img :src='item.picUrl'>
+        <img v-lazy="item.picUrl">
       </div>
     </div>
     <!-- Add Pagination -->
@@ -15,6 +15,7 @@
 <script>
   import Swiper from 'swiper'
   import {reqBannerImgUrl}  from '../../api/index'
+
    export default{
       data(){
         return{
@@ -37,12 +38,12 @@
               clickable: true,
             },
           });
-        },300)
+        },300);
 
         reqBannerImgUrl()
           .then(res=>{
             if(res.code===0){
-              this.Pic = res.data
+              this.Pic = res.data;
             console.log(this.Pic)
             }
           })

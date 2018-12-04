@@ -2,23 +2,23 @@
     <div class="footer">
       <div class="footerlist">
         <ul class="footerul">
-          <li class="lired" @click="goto('/home')">
+          <li :class="{lired:this.$route.path === '/home'}" @click="goto('/home')">
             <i class="iconfont icon-xiazai45"></i>
             <span >首页</span>
           </li>
-          <li  @click="goto('/classification')">
+          <li :class="{lired:this.$route.path === '/classification'}" @click="goto('/classification')">
             <i class="iconfont icon-fenlei" ></i>
             <span>分类</span>
           </li>
-          <li @click="goto('/knowledge')">
+          <li :class="{lired:this.$route.path === '/knowledge'}" @click="goto('/knowledge')">
             <i class="iconfont icon-wupin"></i>
             <span >识物</span>
           </li>
-          <li @click="goto('/shoppingcart')">
+          <li :class="{lired:this.$route.path === '/shoppingcart'}" @click="goto('/shoppingcart')">
             <i class="iconfont icon-shopshoppingco"></i>
             <span >购物车</span>
           </li>
-          <li @click="goto('/personal')">
+          <li :class="{lired:this.$route.path === '/personal'}" @click="goto('/personal')">
             <i class="iconfont icon-gerenzhongxinhui"></i>
             <span >个人</span>
           </li>
@@ -30,9 +30,15 @@
 
 <script>
    export default{
+      data(){
+        return{
+
+        }
+      },
       methods:{
         goto(path){
            this.$router.replace(path)
+
         }
       }
    }

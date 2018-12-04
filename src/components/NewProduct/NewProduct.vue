@@ -10,7 +10,7 @@
            </button>
         </header>
 
-        <div class="newProductBanner">
+        <div class="newProductBanner" ref="myWrapper">
           <ul class="newProductList">
             <li class="firstItem" v-for="(item,index) in Msg" :key="index" >
               <div class="imgWrap">
@@ -63,18 +63,20 @@
   @import '../../../src/common/stylus/mixins.less';
 
   .wrap{
+    position: relative;
     .newProduct{
       width: 100%;
       height: 100%;
       background-color: white;
       position: absolute;
-      top: 829px;
+      top: 1130/@rem;
       .newHeader{
         text-align: center;
         width: 100%;
-        height: 220/@rem;
+        height: 200/@rem;
         background-color: #F1F7FD;
-        padding-top: 40/@rem;
+        padding-top: 50/@rem;
+
 
         .newText{
           font-size: 36/@rem;

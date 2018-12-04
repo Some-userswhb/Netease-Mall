@@ -10,7 +10,7 @@
 
 ## 专题精选下item (topicList)
 
-## 好物 
+## 好物
 
 > (cateList[x].itemList)
 
@@ -33,7 +33,7 @@
 
 ## 为你推荐 (recommendOne)
 
-## 为你推荐下item recommendThree/recommendTwo
+## 为你推荐下item recommendItem
 
 ## 十点一刻 (tenfifteen)
 

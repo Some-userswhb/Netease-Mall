@@ -10,6 +10,9 @@ import Home from '../pages/Home/Home.vue'
 import Knowledge from '../pages/Knowledge/Knowledge.vue'
 import Personal from '../pages/Personal/Personal.vue'
 import Shoppingcart from '../pages/Shoppingcart/Shoppingcart.vue'
+import LoginMask from '../pages/LoginMask/LoginMask.vue'
+import LoginPhone from '../pages/LoginPhone/LoginPhone.vue'
+import LoginSms from '../pages/LoginSms/LoginSms.vue'
 //声明使用
 Vue.use(VueRouter);
 
@@ -18,15 +21,24 @@ export default new VueRouter({
   routes:[
     {
       path:'/home',
-      component:Home
+      component:Home,
+      meta:{
+        showFoot:true
+      }
     },
     {
       path:'/classification',
-      component:Classification
+      component:Classification,
+      meta:{
+        showFoot:true
+      }
     },
     {
       path:'/knowledge',
-      component:Knowledge
+      component:Knowledge,
+      meta:{
+        showFoot:true
+      }
     },
     {
       path:'/personal',
@@ -34,11 +46,29 @@ export default new VueRouter({
     },
     {
       path:'/shoppingcart',
-      component:Shoppingcart
+      component:Shoppingcart,
+      meta:{
+        showFoot:true
+      }
     },
     {
-      path:'',
-      redirect:'/home'
+      path:'/loginmask',
+      component:LoginMask
+
+    },
+    {
+      path:'/loginphone',
+      component:LoginPhone
+
+    },
+    {
+      path:'/loginsms',
+      component:LoginSms
+
+    },
+    {
+      path:'/',
+      redirect:'/loginmask'
     },
   ]
 

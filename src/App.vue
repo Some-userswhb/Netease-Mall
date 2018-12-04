@@ -1,8 +1,10 @@
 <template>
   <div id="app">
+    <transition name="fade" mode="in-out">
+      <router-view/>
+</transition>
 
-    <router-view/>
-    <WeFooter/>
+    <WeFooter v-show="$route.meta.showFoot"/>
   </div>
 </template>
 
@@ -17,6 +19,20 @@
 
 </script>
 
-<style>
+<style lang="less">
+  @import "./common/stylus/mixins.less";
+  .fade-enter {
+    opacity:0.2;
+  }
+  .fade-leave{
+    opacity:1;
+  }
+  .fade-enter-active{
+    transition:opacity 0.3s;
+  }
+  .fade-leave-active {
+    opacity: 0.2;
+    transition: opacity 0.3s;
 
+  }
 </style>
