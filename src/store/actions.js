@@ -4,7 +4,7 @@
 
 
 /**
- *
+ *  异步获取 ajax请求回来的数据
  */
 import {
   reqLeftNav,

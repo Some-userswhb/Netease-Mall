@@ -63,7 +63,7 @@
   }
   .footerlist span{
     text-decoration: none;
-    font-size:12px;
+    font-size:24/@rem;
 
 
   }
@@ -81,18 +81,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 2px;
+    margin-top: 4/@rem;
     &.lired{
       color: red;
     }
     .iconfont{
-      font-size: 20px;
-      margin-bottom: 2px;
+      font-size: 40/@rem;
+      margin-bottom: 4/@rem;
       margin-top: 10/@rem;
     }
     .icon-fenlei{
-      margin-top: 6px;
-      font-size: 16px;
+      margin-top: 12/@rem;
+      font-size: 36/@rem;
       margin-bottom: 10/@rem;
 
     }

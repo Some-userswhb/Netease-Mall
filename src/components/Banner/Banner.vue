@@ -61,9 +61,13 @@
     width: 100%;
     height: 100%;
   }
+  .swiper-pagination-bullet{
+    width: 18px;
+    height: 5px;
+  }
   .swiper-slide {
     text-align: center;
-    font-size: 18px;
+    font-size: 36/@rem;
     background: #fff;
 
     /* Center slide text vertically */

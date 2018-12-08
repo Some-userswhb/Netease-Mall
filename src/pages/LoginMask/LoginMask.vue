@@ -50,12 +50,12 @@
       height: 430/@rem;
       img{
         width: 100%;
-        height: 100%;
+        height: 90%;
       }
     }
     .mask-content{
       width: 100%;
-      height: 400/@rem;
+      height: 350/@rem;
       img{
         width: 100%;
         height: 100%;
@@ -63,7 +63,7 @@
     }
     .mask-footer{
       width: 100%;
-      height: 450/@rem ;
+      height: 452/@rem ;
       img{
         width: 100%;
         height: 100%;

@@ -7,7 +7,7 @@
           <div class="bigList">
             <ul class="bigUlList clearFix">
               <li class="bigLi" v-for="(item,index) in good.itemList" :key="index">
-              <img :src="item.listPicUrl" class="contentImg">
+              <img v-lazy="item.listPicUrl" class="contentImg">
               <p class="imgMsg ellipsis">{{item.simpleDesc}}</p><br/>
               <p class="imgMsg2 ellipsis">{{item.name}}</p>
               <span class="imgMoney">{{item.retailPrice}}￥</span>
@@ -47,10 +47,12 @@
   @import "../../../src/common/stylus/mixins.less";
   .bigWrap{
     position: relative;
+    top: 1630/@rem;
+    width: 100%;
+    height: 100%;
     .bigContent{
       position: absolute;
       left:0;
-      top: 2720/@rem;
       width: 100%;
       .BigLio{
         width: 100%;
@@ -61,14 +63,18 @@
           text-align: center;
           display:block;
           font-size: 32/@rem;
-          background-color: #f1f1f1;
-          padding-top: 8px;
+          background-color: darkgray;
+          padding-top: 16/@rem;
+          padding-bottom: 14/@rem;
+
         }
       }
       .bigList{
         width: 100%;
         height: 100%;
-        margin-bottom: 40/@rem;
+        margin-bottom: 60/@rem;
+        padding-bottom: 60/@rem;
+
         .bigUlList{
           width: 100%;
           /*height: 2500px;*/

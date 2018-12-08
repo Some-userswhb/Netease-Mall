@@ -65,7 +65,7 @@
         padding-top: 20/@rem;
         li{
           float: left;
-          margin-left: 90/@rem;
+          margin-left: 70/@rem;
         }
       }
     }

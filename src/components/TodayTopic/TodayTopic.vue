@@ -97,23 +97,23 @@
        background: url("../../common/images/today-bg.png");
        background-size: 100% 100%;
        p:nth-child(1){
-         margin-top: 10px;
+         margin-top: 20/@rem;
          font-size: 24/@rem;
          color: gray;
        }
        p:nth-child(2){
-         margin-top: 20px;
+         margin-top: 40/@rem;
          font-size: 38/@rem;
          color: black;
          font-weight: bold;
        }
        p:nth-child(3){
-         margin-top: 10px;
+         margin-top: 20/@rem;
          font-size: 30/@rem;
          color: black;
        }
        p:nth-child(4){
-         margin-top: 10px;
+         margin-top: 20/@rem;
          font-size: 20/@rem;
          color: black;
        }

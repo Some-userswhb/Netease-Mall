@@ -71,8 +71,8 @@
       width: 300/@rem;
       height: 100/@rem;
       margin: 0 auto;
-      margin-bottom: 120/@rem;
-      margin-top: 60px;
+      margin-bottom: 100/@rem;
+      margin-top: 50px;
       img{
         width: 100%;
         height: 100%;
@@ -81,7 +81,7 @@
     .login-btn{
       padding-top: 40/@rem;
       width: 100%;
-      height: 560/@rem;
+      height: 540/@rem;
       text-align: center;
       font-size: 32/@rem;
       .login-phone{

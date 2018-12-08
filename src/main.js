@@ -15,6 +15,10 @@ import 'swiper/dist/css/swiper.css';
 //引入mock接口模块
 import './mock/mockServer'
 
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+
+Vue.use(MintUI)
 
 
 import VueLazyLoad from 'vue-lazyload'
@@ -24,6 +28,7 @@ import loading from './common/images/loading.gif'
 Vue.use(VueLazyLoad,{
   loading
 });
+
 
 
 new Vue({

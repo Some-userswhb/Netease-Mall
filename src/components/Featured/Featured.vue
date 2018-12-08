@@ -64,15 +64,15 @@
   @import "../../../src/common/stylus/mixins.less";
   .featuredWrap{
     width: 100%;
-    position: relative;
    .featuredContent{
      width: 100%;
-     height: 562/@rem;
+     height: 582/@rem;
      background-color: #F4F4F4;
      position: absolute;
      left:0;
-     top: 2160/@rem;
+     top: 2680/@rem;
      border-bottom: 2/@rem solid #B3B3B3;
+     margin-bottom: 12/rem;
      .featTitle{
        width: 100%;
        height: 100/@rem;
@@ -87,7 +87,7 @@
        height: 385/@rem;
        padding: 10px 0 10px 10px;
        .imgList{
-         width: 2200/@rem;
+         width: 1800/@rem;
          height: 386/@rem;
          font-size: 26/@rem;
          li{

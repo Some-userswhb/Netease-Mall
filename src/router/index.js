@@ -11,8 +11,10 @@ import Knowledge from '../pages/Knowledge/Knowledge.vue'
 import Personal from '../pages/Personal/Personal.vue'
 import Shoppingcart from '../pages/Shoppingcart/Shoppingcart.vue'
 import LoginMask from '../pages/LoginMask/LoginMask.vue'
-import LoginPhone from '../pages/LoginPhone/LoginPhone.vue'
-import LoginSms from '../pages/LoginSms/LoginSms.vue'
+import LoginPhone from '../pages/Personal/LoginPhone/LoginPhone.vue'
+import LoginSms from '../pages/Personal/LoginSms/LoginSms.vue'
+import LoginCompleted from '../pages/Personal/LoginCompleted/LoginCompleted.vue'
+import SearchGoods  from '../pages/Classification/SearchGoods/SearchGoods.vue'
 //声明使用
 Vue.use(VueRouter);
 
@@ -65,6 +67,14 @@ export default new VueRouter({
       path:'/loginsms',
       component:LoginSms
 
+    },
+    {
+      path:'/logincompleted',
+      component:LoginCompleted
+    },
+    {
+      path:'/searchgoods',
+      component:SearchGoods
     },
     {
       path:'/',

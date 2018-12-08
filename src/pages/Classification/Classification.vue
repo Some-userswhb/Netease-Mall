@@ -2,7 +2,7 @@
     <div class="two-wrap">
       <!--头部-->
         <div class="two-header">
-          <div class="header-sou">
+          <div class="header-sou" @click="goto('/searchgoods')">
             <i class="iconfont icon-sousuo1"></i>
             <span>搜索商品,共19714款好物</span>
           </div>
@@ -21,13 +21,13 @@
         <!--右侧内容-->
         <div class="right-wrap" v-show="rightUl">
           <!--v-for="(img,index) in leftnavlist" :key="index"-->
-          <div class="right-header">
+          <div class="right-header" v-if="rightUl">
             <img :src="rightUl.bannerUrl" alt="右侧图片">
           </div>
           <div class="right-content">
             <p class="content-title">居家</p>
             <div class="content-picmsg">
-              <ul class="content-list">
+              <ul class="content-list" v-if="rightUl">
 
                 <li class="content-item" v-for="(limsg,index) in rightUl.subCateList" :key="index">
                   <img :src="limsg.wapBannerUrl" alt="" class="content-img">
@@ -63,6 +63,9 @@
      methods:{
        addstyle(index){
          this.istrue = index
+       },
+       goto(path){
+         this.$router.push(path)
        }
      },
       mounted(){
@@ -85,7 +88,7 @@
       height: 76/@rem;
       background-color: white;
       padding-top: 14/@rem;
-      border-bottom: 1px solid #7e8c8d;
+      border-bottom: 2/@rem solid #7e8c8d;
       .header-sou{
         width: 664/@rem;
         background-color: #ededed;
@@ -107,23 +110,26 @@
         float: left;
         text-align: center;
         font-size: 28/@rem;
-        width: 168/@rem;
+        width: 166/@rem;
         height: 1200/@rem;
         /*background-color: gold;*/
-        border-right:1px solid #666;
+        border-right:2/@rem solid #666;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        /*滚动条加速器*/
+        -webkit-overflow-scrolling: touch;
         .left-nav-list{
           li{
             width: 100%;
             height: 60/@rem;
-            /*background-color: grey;*/
-            margin: 14px 0px;
+            margin: 28/@rem 0px;
 
           }
           .clickcolor{
             color: #b4282d;
-            font-size: 16px;
+            font-size: 32/@rem;
             font-weight: bold;
-            border-left: 3px solid #b4282d;
+            border-left: 6/@rem solid #b4282d;
           }
           .nav-red{
             color: red;
@@ -167,7 +173,7 @@
             height: 100%;
             background-color: white;
             .content-list{
-              margin-left: 10px;
+              margin-left: 12/@rem;
               width: 100%;
               height: 100%;
               li{

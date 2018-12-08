@@ -20,59 +20,29 @@
         <!--导航-->
         <div class="wrapper" ref="wrapper">
           <ul class="homeNavList">
-            <li class="red">
-              <span>推荐</span>
+            <li v-for="(item,index) in navList"
+                :key="index"
+                :class="{'red':isred === index}"
+                @click="gbColor(index)">
+              <span>{{item}}</span>
             </li>
-            <li>
-              <span>居家</span>
-            </li>
-            <li>
-              <span>鞋包配饰</span>
-            </li>
-            <li>
-              <span>服装</span>
-            </li>
-            <li>
-              <span>电器</span>
-            </li>
-            <li>
-              <span>洗护</span>
-            </li>
-            <li>
-              <span>饮食</span>
-            </li>
-            <li>
-              <span>餐厨</span>
-            </li>
-            <li>
-              <span>婴童</span>
-            </li>
-            <li>
-              <span>文体</span>
-            </li>
-            <li>
-              <span>特色区</span>
-            </li>
+
           </ul>
           <!--箭头遮罩层-->
-          <div class="mask" @click="ToggleMask">
-            <span>
-               <i class="iconfont icon-jiantou maskArrow"></i>
-            </span>
+          <div class="mask" >
+             <span @click="ToggleMask" :class="{rotate:isrotate}">
+                   <i class="iconfont icon-jiantou"></i>
+             </span>
+
 
             <div class="maskContent maskToggle" v-show="isshow" >
               <ul class="maskContentList">
-                <li class="licolor">推荐</li>
-                <li>居家</li>
-                <li>鞋包配饰</li>
-                <li>服装</li>
-                <li>电器</li>
-                <li>洗护</li>
-                <li>饮食</li>
-                <li>餐厨</li>
-                <li>婴童</li>
-                <li>文体</li>
-                <li>特色区</li>
+                <li  v-for="(name,index) in navList"
+                     :key="index"
+                     :class="{'red':maskRed === index}"
+                     @click="MaskColor(index)"
+                >{{name}}</li>
+
               </ul>
             </div>
           </div>
@@ -179,23 +149,40 @@
      data(){
         return{
           isshow:false,
-          goto(path){
-            this.$router.replace(path)
-          }
+          isred:0,
+          maskRed:0,
+          navList:["推荐","居家","鞋包配饰","服装","电器","洗护","饮食","餐厨","婴童","文体","特色区"],
+          isrotate:false
         }
      },
      methods:{
         //遮罩层显示
         ToggleMask(){
-           this.isshow = ! this.isshow
-        },
+         this.isshow = ! this.isshow
+          this.isrotate = !this.isrotate
+       },
+       //导航点击变色
+       gbColor(index){
+          this.isred = index
+       },
+       MaskColor(index){
+
+          this.maskRed = index
+       },
+       goto(path){
+         this.$router.replace(path)
+       },
+
 
       },
      mounted(){
+
        new BScroll('.wrapper',{
          scrollX: true,
          click: true
-       });
+       })
+
+
 
      }
    }
@@ -205,8 +192,11 @@
 <style lang="less">
   @import "../../common/stylus/mixins.less";
   /*头部*/
+
+
 .warpScroll{
   width: 100%;
+  height: 100%;
   .homeHeader{
     position: fixed;
     left: 0;
@@ -241,23 +231,23 @@
         position: absolute;
         left: 195/@rem;
         top: 20/@rem;
-        font-size: 44/@rem;
+        font-size: 42/@rem;
       }
       .headerInput{
         width: 390/@rem;
         height:60/@rem;
-        border-radius: 4px;
+        border-radius: 8/@rem;
         background-color: #EDEDED;
-        font-size: 14/@rem;
+        font-size: 26/@rem;
         padding-left: 65/@rem;
       }
       .headerLogin{
         width: 90/@rem;
         height: 42/@rem;
-        font-size: 12px;
-        border-radius: 5px;
+        font-size: 24/@rem;
+        border-radius: 10/@rem;
         color: #B22531;
-        border: 1px solid #B22531;
+        border: 2/@rem solid #B22531;
         background-color: white;
         margin-top: 18/@rem;
         margin-left: 15/@rem;
@@ -279,20 +269,30 @@
       }
       .red{
         color: #BB3E48;
-        border-bottom: 2px solid #BB3E48;
+        border-bottom: 4/@rem solid #BB3E48;
       }
+
     }
+    /*遮罩层*/
     .mask{
       width: 100/@rem;
       height: 60/@rem;
       background-color: white;
       position: absolute;
       right: -1px;
-      top: 90/@rem;
+      top: 80/@rem;
       text-align: center;
       line-height: 60/@rem;
       box-shadow: -22/@rem 0 52/@rem white;
-      /*z-index: 10;*/
+      span{
+        display: block;
+      }
+      .rotate{
+        display: inline-block;
+        transform: rotate(180deg);
+        transition: 1s;
+      }
+
       .maskContent{
         width: 750/@rem;
         height: 300/@rem;
@@ -301,17 +301,29 @@
         left: -652/@rem;
         top: 60/@rem;
         z-index: 20;
+        .maskContentList{
+          width: 100%;
+          height: 100%;
+
+        }
+        .red{
+          color: red;
+          border-left:4/@rem solid red ;
+          border-right:4/@rem solid red ;
+        }
         li{
-          width: 150/@rem;
-          height: 56/@rem;
-          border: 1px solid #F1F1F1;
-          margin: 12px 5px 5px 10px;
-          font-size: 12px;
+          width: 148/@rem;
+          height: 50/@rem;
+          line-height: 54/@rem;
+          border: 2/@rem solid #F1F1F1;
+          margin: 22/@rem 9/@rem 9/@rem 18/@rem;
+          font-size: 24/@rem;
           float: left;
-          border-radius: 2px;
+          border-radius: 4/@rem;
           background-color: #FAFAFA;
+
           &.licolor{
-            border: 1px solid #C0505A;
+            border: 2/@rem solid #C0505A;
             color: #C0505A;
           }
 
@@ -322,180 +334,181 @@
   }
   .pageScroll{
     width: 100%;
-    height: 1080/@rem;
+    height: 1100/@rem;
     position: relative;
-    top: 74px;
+    top: 148/@rem;
     overflow-y: scroll;
-    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-
-  /*轮播图下的小公告*/
-  .shopDirections{
-    width: 100%;
-    height: 45/@rem;
-    padding-top: 24/@rem;
-    margin-bottom: 20/@rem;
-    background-color: white;
-    .directionsList{
+    /*轮播图下的小公告*/
+    .shopDirections{
       width: 100%;
-      height: 36/@rem;
-      li{
-        float: left;
-        height: 31/@rem;
-        width: 28%;
-        padding-left: 26/@rem;
-        span{
-          width: 32/@rem;
-          height:32/@rem;
-          float: left;
-          img{
-            float: left;
-            width: 100%;
-            height: 100%;
-          }
-        }
-        p{
-          font-size: 24/@rem !important;
-          white-space: nowrap;
-        }
-      }
-
-    }
-  }
-  /*新人专享礼*/
-  .newcomerGift{
-    width: 100%;
-    height: 90/@rem;
-    background-color: white;
-    text-align: center;
-    line-height: 90/@rem;
-    .newComeText{
-      font-size: 16px;
-    }
-    .leftLevelLine{
-      display: inline-block;
-      width: 28/@rem;
-      height: 3/@rem;
-      background-color: black;
-      margin-bottom: 5px;
-      margin-right: 2px;
-    }
-    .rightLevelLine{
-      display: inline-block;
-      width: 28/@rem;
-      height: 3/@rem;
-      background-color: black;
-      margin-bottom: 5px;
-    }
-    .newGiftContent{
-      width: 100%;
-      height:437/@rem;
+      height: 45/@rem;
+      padding-top: 24/@rem;
+      margin-bottom: 20/@rem;
       background-color: white;
-      .newGiftLeft{
-        float: left;
-        width: 50%;
-        height: 100%;
-        background-color: #F9E9D0;
-        position: relative;
-        .arrowAnimation{
-          width: 36/@rem;
-          height: 20/@rem;
-          position: absolute;
-          left: 224/@rem;
-          top: 325/@rem;
-          background: url("//yanxuan.nosdn.127.net/3f7e731c6650bc1770589c78bd5a18b7.png") no-repeat;
-          background-size: 100% 100%;
-        }
-        img{
-          margin-top: 20px;
-          width: 228/@rem;
-          height: 228/@rem;
-        }
-
-      }
-      .newGiftRight{
-        float: right;
-        width: 50%-0.8;
-        height: 100%;
-        background-color: gray;
-        .rightTop{
-          font-size: 32/@rem;
-          width: 100%;
-          height: 50%-0.5;
-          background-color: #FAE2D4;
-          border-bottom: 1.5px solid white;
-          position: relative;
-          img{
-            position: absolute;
-            width: 180/@rem;
-            height: 180/@rem;
-            left: 94px;
-            top: 18px;
-          }
-          .rightText{
-            width: 60px;
-            height: 90px;
-            margin-left: 20px;
-            .today{
-              font-size: 12px;
-              color: gray;
-            }
-            .welfare{
-              display: block;
-              margin-bottom: -25px;
-
+      .directionsList{
+        width: 100%;
+        height: 36/@rem;
+        li{
+          float: left;
+          height: 31/@rem;
+          width: 28%;
+          padding-left: 26/@rem;
+          span{
+            width: 32/@rem;
+            height:32/@rem;
+            float: left;
+            img{
+              float: left;
+              width: 100%;
+              height: 100%;
             }
           }
-
-
-        }
-
-        .rightBottom{
-          font-size: 30/@rem;
-          width: 100%;
-          height: 50%;
-          background-color: #FEECC4;
-          position: relative;
-          img{
-            position: absolute;
-            width: 180/@rem;
-            height: 180/@rem;
-            left: 94px;
-            top: 18px;
-          }
-          .rightText{
-            width: 60px;
-            height: 90px;
-            margin-left: 20px;
-            .oneYuan{
-              font-size: 12px;
-              color: gray;
-              background-color:#CAB695;
-              color: white;
-              padding: 0 2px;
-              border-radius: 3px;
-            }
-            .newComer{
-              display: block;
-              margin-bottom: -25px;
-
-            }
+          p{
+            font-size: 24/@rem !important;
+            white-space: nowrap;
           }
         }
+
       }
     }
-  }
-  /*福利社*/
-  .welfareClub{
-    width: 100%;
-    height: 300/@rem;
-    position: absolute;
-    top: 2390/@rem;
-    img{
+    /*新人专享礼*/
+    .newcomerGift{
       width: 100%;
-      height: 100%;
+      height: 90/@rem;
+      background-color: white;
+      text-align: center;
+      line-height: 90/@rem;
+      .newComeText{
+        font-size: 32/@rem;
+      }
+      .leftLevelLine{
+        display: inline-block;
+        width: 28/@rem;
+        height: 3/@rem;
+        background-color: black;
+        margin-bottom: 10/@rem;
+        margin-right: 4/@rem;
+      }
+      .rightLevelLine{
+        display: inline-block;
+        width: 28/@rem;
+        height: 3/@rem;
+        background-color: black;
+        margin-bottom: 10/@rem;
+      }
+      .newGiftContent{
+        width: 100%;
+        height:437/@rem;
+        background-color: white;
+        .newGiftLeft{
+          float: left;
+          width: 50%;
+          height: 100%;
+          background-color: #F9E9D0;
+          position: relative;
+          .arrowAnimation{
+            width: 36/@rem;
+            height: 20/@rem;
+            position: absolute;
+            left: 224/@rem;
+            top: 325/@rem;
+            background: url("//yanxuan.nosdn.127.net/3f7e731c6650bc1770589c78bd5a18b7.png") no-repeat;
+            background-size: 100% 100%;
+          }
+          img{
+            margin-top: 20/@rem;
+            width: 228/@rem;
+            height: 228/@rem;
+          }
+
+        }
+        .newGiftRight{
+          float: right;
+          width: 50%-0.8;
+          height: 100%;
+          background-color: gray;
+          .rightTop{
+            font-size: 32/@rem;
+            width: 100%;
+            height: 50%-0.5;
+            background-color: #FAE2D4;
+            border-bottom: 3/@rem solid white;
+            position: relative;
+            img{
+              position: absolute;
+              width: 180/@rem;
+              height: 180/@rem;
+              left: 188/@rem;
+              top: 36/@rem;
+            }
+            .rightText{
+              white-space: normal;
+              width: 120/@rem;
+              height: 180/@rem;
+              margin-left: 40/@rem;
+              .today{
+                font-size: 24/@rem;
+                color: gray;
+              }
+              .welfare{
+                display: block;
+                margin-bottom: -50/@rem;
+
+              }
+            }
+
+
+          }
+
+          .rightBottom{
+            font-size: 30/@rem;
+            width: 100%;
+            height: 50%;
+            background-color: #FEECC4;
+            position: relative;
+            img{
+              position: absolute;
+              width: 180/@rem;
+              height: 180/@rem;
+              left: 188/@rem;
+              top: 36/@rem;
+            }
+            .rightText{
+              width: 120/@rem;
+              height: 180/@rem;
+              margin-left: 15/@rem;
+              .oneYuan{
+                font-size: 24/@rem;
+                color: gray;
+                background-color:#CAB695;
+                color: white;
+                padding: 0 4/@rem;
+                border-radius: 6/@rem;
+              }
+              .newComer{
+                font-size: 30/@rem;
+                display: block;
+                width: 138/@rem;
+                margin-bottom: -50/@rem;
+
+              }
+            }
+          }
+        }
+      }
     }
-  }
+    /*福利社*/
+    .welfareClub{
+      width: 100%;
+      height: 300/@rem;
+      position: absolute;
+      top: 2410/@rem;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
 </style>

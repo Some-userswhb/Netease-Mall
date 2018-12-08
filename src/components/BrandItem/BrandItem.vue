@@ -67,7 +67,7 @@
         font-size: 28/@rem;
         margin-right: 20/@rem;
         i{
-          font-size: 12px;
+          font-size: 24/@rem;
         }
       }
     }
@@ -83,23 +83,19 @@
         font-size: 30/@rem;
         text-align: center;
         li{
-          padding-top: 10px;
+          padding-top: 20/@rem;
           .price{
             font-size: 26/@rem;
             color: grey;
-
           }
         }
         .onePic{
+          float: left;
           width: 50%-1;
           height: 50%-1;
           background-image: url("https://yanxuan.nosdn.127.net/802ff06dd3ef161db046eeb8db6cb4be.jpg?imageView&thumbnail=343y260&enlarge=1");
           background-size: 100% 100%;
-          float: left;
           margin-right: 7/@rem;
-          span{
-
-          }
 
         }
         .twoPic{
@@ -108,24 +104,29 @@
           height: 49%;
           background-image: url("https://yanxuan.nosdn.127.net/c1e97be1b9730360c9c228b6a6448bca.png?imageView&thumbnail=343y260&enlarge=1");
           background-size: 100% 100%;
-          margin-top: -1px;
+          margin-top: -2/@rem;
         }
         .threePic{
-          float: left;
-          width: 49%;
-          height: 49%;
+          position: absolute;
+          left: 12/@rem;
+          top:355/@rem;
+          width: 49%-1.5;
+          height: 49%-10.5;
           background-image: url("https://yanxuan.nosdn.127.net/e550a44d2a7a68ed38e6cfd380e514aa.png?imageView&thumbnail=343y260&enlarge=1");
           background-size: 100% 100%;
-          margin-right: 7/@rem;
+          margin-right: 6/@rem;
           margin-top: 4/@rem;
         }
         .fourPic{
-          float: left;
-          width: 49%;
-          height: 49%;
+          position: absolute;
+          left: 368/@rem;
+          top:355/@rem;
+          margin-left: 6/@rem;
+          width: 49%-3;
+          height: 49%-10.5;
           background-image: url("https://yanxuan.nosdn.127.net/053ecfefd033a9acd2cb95483e14fcb6.jpg?imageView&thumbnail=343y260&enlarge=1");
           background-size: 100% 100%;
-          margin-top: 4/@rem;
+          margin-top: 6/@rem;
 
         }
       }

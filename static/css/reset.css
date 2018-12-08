@@ -32,11 +32,13 @@ footer, header, menu, nav, section {
 /*body {*/
   /*line-height: 1;*/
 /*}*/
+/**/
+/**{touch-action: none;}*/
 html, body {
+
   overflow:hidden;
-  /*overflow: hidden;*/
   height: 100%;
-  width: 100%;
+
 }
 blockquote, q {
   quotes: none;
@@ -64,18 +66,18 @@ li {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
   height: 5px;
 }
 
 ::-webkit-scrollbar-track-piece {
   background-color: rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 6px;
+  -webkit-border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
   height: 5px;
-  background-color: rgba(125, 125, 125, 0.7);
+  background-color: rgba(125, 125, 125, 0.5);
   -webkit-border-radius: 6px;
 }
 

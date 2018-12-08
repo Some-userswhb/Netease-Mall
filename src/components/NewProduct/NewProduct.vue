@@ -43,7 +43,7 @@
        reqNewMsg()
          .then(res=>{
            if(res.code===0){
-             this.Msg = res.data
+             this.Msg = res.data;
              console.log(this.Msg)
            }
          });
@@ -64,19 +64,22 @@
 
   .wrap{
     position: relative;
+    top: 1130/@rem;
+    width: 100%;
+    height: 100%;
+    background-color: red;
     .newProduct{
       width: 100%;
       height: 100%;
       background-color: white;
       position: absolute;
-      top: 1130/@rem;
+
       .newHeader{
         text-align: center;
         width: 100%;
         height: 200/@rem;
         background-color: #F1F7FD;
         padding-top: 50/@rem;
-
 
         .newText{
           font-size: 36/@rem;
@@ -95,12 +98,13 @@
       .newProductBanner{
         width: 100%;
         height: 420/@rem;
-        /*background-color: #7e8c8d;*/
+        background-color: #F1F7FD;
         font-size: 28/@rem;
         padding: 20/@rem 0 25/@rem 30/@rem;
         .newProductList {
           width: 2400/@rem;
           height: 100%;
+          background-color: #F1F7FD;
 
           .firstItem{
             width: 288/@rem;
